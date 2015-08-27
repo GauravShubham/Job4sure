@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Adminizio Lite</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" media="screen,projection" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" media="screen,projection" type="text/css" href="css/main.css" />
+<link rel="stylesheet" media="screen,projection" type="text/css" href="css/2col.css" title="2col" />
+<link rel="alternate stylesheet" media="screen,projection" type="text/css" href="css/1col.css" title="1col" />
+<!--[if lte IE 6]><link rel="stylesheet" media="screen,projection" type="text/css" href="css/main-ie6.css" /><![endif]-->
+<link rel="stylesheet" media="screen,projection" type="text/css" href="css/style.css" />
+<link rel="stylesheet" media="screen,projection" type="text/css" href="css/mystyle.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/switcher.js"></script>
+<script type="text/javascript" src="js/toggle.js"></script>
+<script type="text/javascript" src="js/ui.core.js"></script>
+<script type="text/javascript" src="js/ui.tabs.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".tabs > ul").tabs();
+	});
+	</script>
+	<style>
+    .multiselect {
+        width: 200px;
+    }
+    .selectBox {
+        position: relative;
+    }
+    .selectBox select {
+        width: 100%;
+        font-weight: bold;
+    }
+    .overSelect {
+        position: absolute;
+        left: 0; right: 0; top: 0; bottom: 0;
+    }
+    #checkboxes {
+        display: none;
+        border: 1px #dadada solid;
+    }
+    #checkboxes label {
+        display: block;
+    }
+    #checkboxes label:hover {
+        background-color: #1e90ff;
+    }
+</style>
+<script>
+    var expanded = false;
+    function showCheckboxes() {
+        var checkboxes = document.getElementById("checkboxes");
+        if (!expanded) {
+            checkboxes.style.display = "block";
+            expanded = true;
+        } else {
+            checkboxes.style.display = "none";
+            expanded = false;
+        }
+    }
+</script>
+</head>
+<body>
+<div id="main">
+ 
+  <h2>Update Profile</h2>
+  <table>
+  <tr>
+	<td>Company name*:</td>
+	<td><input type="text" name="company_name">
+	</td>
+	<tr>
+	<td>Company Logo:</td>
+	<td><input type="file" name="company_logo"/></td>
+	</tr>
+	<tr><td>About Us:</td>
+	<td><textarea rows="10" col="40" style="resize:vertical-align"></textarea>
+	</td>
+	</tr>
+	<tr><td>Domain*:</td>
+	<td> <div class="multiselect">
+        <div class="selectBox" onclick="showCheckboxes()">
+            <select>
+                <option>Select an option</option>
+            </select>
+            <div class="overSelect"></div>
+        </div>
+        <div id="checkboxes">
+            <label for="one"><input type="checkbox" id="one"/>IT</label>
+            <label for="two"><input type="checkbox" id="two"/>Finance </label>
+            <label for="three"><input type="checkbox" id="three"/>Management</label>
+			<label for="one"><input type="checkbox" id="one"/>CA</label>
+            <label for="two"><input type="checkbox" id="two"/>Medical </label>
+            <label for="three"><input type="checkbox" id="three"/>Agriculture</label>
+			<label for="one"><input type="checkbox" id="one"/>Interior Designer</label>
+            <label for="two"><input type="checkbox" id="two"/>Architecture</label>
+            <label for="three"><input type="checkbox" id="three"/>Engineering</label>
+        </div>
+    </div>
+	</td>
+	</tr>
+	<tr>
+	<td>Company URL*:</td>
+	<td><input type="text" name="company_url"></td>
+	</tr>
+	<tr><td><input type="submit" value="Update"/></td></tr>
+	
+  </table>
+  
+  </div>
+</body>
+</html>
